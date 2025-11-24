@@ -1,5 +1,6 @@
 import { useState } from "react"
-import axios from "axios";
+import axios from "axios"
+import dayjs from "dayjs";
 
 const AddNote = ({ setNotes }) => {
 
@@ -7,27 +8,33 @@ const AddNote = ({ setNotes }) => {
     const [loading, setLoading] = useState(false);
 
     const add = () => {
-        setNotes(prev => [...prev, text]);
+        if (!text.trim()) return;
+
+        setNotes(prev => [...prev, {
+            id: crypto.randomUUID(),
+            text,
+            date: dayjs()
+        }]);
         setText('')
     }
 
-const ai = async () => {
-  try {
-    setLoading(true);
+    const ai = async () => {
+        try {
+            setLoading(true);
 
-    const res = await axios.post("http://localhost:3000/api/complete", {
-      text
-    });
+            const res = await axios.post("http://localhost:3000/api/complete", {
+                text
+            });
 
-    const improved = res.data.choices[0].message.content;
-    setText(improved);
+            const improved = res.data.choices[0].message.content;
+            setText(improved);
 
-  } catch (err) {
-    console.error(err);
-  } finally {
-    setLoading(false);
-  }
-};
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
 
 
