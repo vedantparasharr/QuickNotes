@@ -8,7 +8,7 @@ const Note = ({ notes, setNotes, setText, setIsEditing, setNoteId }) => {
     }
 
     const edit = (id) => {
-        let note = notes.find(n => n.id === id)
+        const note = notes.find(n => n.id === id)
         setText(note.text)
         setIsEditing(true)
         setNoteId(id)

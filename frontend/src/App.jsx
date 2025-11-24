@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './App.css'
 import Note from './components/Note'
 import AddNote from './components/AddNote'
-import { useEffect } from 'react'
 
 function App() {
 

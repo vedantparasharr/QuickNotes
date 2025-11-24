@@ -4,13 +4,16 @@ import dayjs from "dayjs";
 
 const AddNote = ({ setNotes, text, setText, isEditing, setIsEditing, noteId, setNoteId }) => {
 
+    const WORD_LIMIT = 100;
+    const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+
     const [loading, setLoading] = useState(false);
 
     const add = () => {
         if (!text.trim()) return;
 
         if (isEditing) {
-            setNotes(prev => prev.map(n => n.id === noteId ? {...n, text} : n ))
+            setNotes(prev => prev.map(n => n.id === noteId ? { ...n, text } : n))
             setIsEditing(false)
             setNoteId(null)
         } else {
@@ -49,7 +52,16 @@ const AddNote = ({ setNotes, text, setText, isEditing, setIsEditing, noteId, set
             <textarea
                 className='bg-purple-300 h-full w-full resize-none rounded-3xl p-5 align-middle font-[450] text-2xl overflow-hidden'
                 value={loading ? 'Thinking...' : text}
-                onChange={((e) => setText(e.target.value))}
+                onChange={(e) => {
+                    const value = e.target.value;
+                    const count =
+                        value.trim() === ""
+                            ? 0
+                            : value.trim().split(/\s+/).length;
+
+                    if (count > WORD_LIMIT) return;
+                    setText(value);
+                }}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                         e.preventDefault();
@@ -63,6 +75,7 @@ const AddNote = ({ setNotes, text, setText, isEditing, setIsEditing, noteId, set
                 <span className="material-symbols-outlined cursor-pointer " onClick={ai} >
                     smart_toy
                 </span>
+                <p className={`font-medium ${wordCount >= WORD_LIMIT ? "text-red-600" : "text-gray-700"} `} >{`${wordCount}/${WORD_LIMIT}`}</p>
                 <span onClick={add} className="material-symbols-outlined cursor-pointer ">
                     add_2
                 </span>
