@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react";
 import axios from "axios"
 import dayjs from "dayjs";
 
@@ -6,6 +6,27 @@ const AddNote = ({ setNotes, text, setText, isEditing, setIsEditing, noteId, set
 
     const WORD_LIMIT = 100;
     const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+
+    const textareaRef = useRef(null);
+    const MAX_HEIGHT = 350;
+
+    const autoResize = () => {
+        const ta = textareaRef.current;
+        if (!ta) return;
+
+        ta.style.height = "auto";
+
+        const newHeight = Math.min(ta.scrollHeight, MAX_HEIGHT);
+
+        ta.style.height = newHeight + "px";
+        ta.style.overflowY = ta.scrollHeight > MAX_HEIGHT ? "scroll" : "hidden";
+    };
+
+
+    useEffect(() => {
+        autoResize();
+    }, [text]);
+
 
     const [loading, setLoading] = useState(false);
 
@@ -48,9 +69,11 @@ const AddNote = ({ setNotes, text, setText, isEditing, setIsEditing, noteId, set
 
 
     return (
-        <div className='  flex flex-col bg-purple-300 max-h-56 rounded-3xl shadow-2xl transition-all duration-300 ease-in-out' >
+        <div className='  flex flex-col bg-purple-300 rounded-3xl shadow-2xl transition-all duration-300 ease-in-out' >
             <textarea
-                className='bg-purple-300 h-full w-full resize-none rounded-3xl p-5 align-middle font-[450] text-2xl overflow-hidden'
+                ref={textareaRef}
+
+                className='bg-purple-300 w-full resize-none rounded-3xl p-5 align-middle font-[450] text-2xl overflow-hidden outline-none custom-scrollbar '
                 value={loading ? 'Thinking...' : text}
                 onChange={(e) => {
                     const value = e.target.value;

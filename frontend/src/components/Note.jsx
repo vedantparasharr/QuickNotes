@@ -17,34 +17,49 @@ const Note = ({ notes, setNotes, setText, setIsEditing, setNoteId }) => {
     if (!notes) return null;
 
     return notes.map((note) => {
-        console.log(note.date)
         return (
-            <div key={note.id} className='flex flex-col bg-orange-300 max-h-56 p-5 rounded-3xl shadow-2xl transition-all duration-300 ease-in-out hover:max-h-screen overflow-hidden'>
-                <p className='align-middle font-[450] text-2xl overflow-hidden h-full ' >
+            <div
+                key={note.id}
+                className="
+                bg-gradient-to-br from-orange-200 to-orange-300
+                p-5 mb-5 rounded-2xl shadow-md 
+                transition-all duration-300 
+                hover:shadow-xl hover:-translate-y-1
+                animate-fadeIn
+                h-auto
+                break-inside-avoid
+
+            "
+            >
+                <p className="font-medium text-xl text-gray-900 break-words max-h-52 overflow-y-auto custom-scrollbar">
                     {note.text}
                 </p>
-                <div className='flex justify-between items-center mt-2 ' >
-                    <p className='align-middle font-medium text-1xl' >{dayjs(note.date).format('MMM D, YYYY')}</p>
-                    <div className="flex gap-2">
-                        <span className="material-symbols-outlined cursor-pointer"
-                                onClick={() => {
-                                    edit(note.id)
-                                } } 
-                                >
+
+                <div className="flex justify-between items-center mt-3">
+                    <p className="text-sm text-gray-700">
+                        {dayjs(note.date).format('MMM D, YYYY')}
+                    </p>
+
+                    <div className="flex gap-3">
+                        <span
+                            className="material-symbols-outlined cursor-pointer hover:text-blue-600 transition"
+                            onClick={() => edit(note.id)}
+                        >
                             edit
                         </span>
+
                         <span
-                            className="material-symbols-outlined cursor-pointer "
-                            onClick={() => {
-                                remove(note.id)
-                            }}
+                            className="material-symbols-outlined cursor-pointer hover:text-red-600 transition"
+                            onClick={() => remove(note.id)}
                         >
                             delete
                         </span>
                     </div>
                 </div>
-            </div>)
-    })
+            </div>
+        );
+    });
+
 }
 
 export default Note
