@@ -17,5 +17,6 @@ app.post("/api/complete", async (req, res) => {
     res.status(500).json({ error: "AI request failed" });
   }
 });
+console.log("Backend loaded key:", process.env.OPENROUTER_KEY);
 
 app.listen(3000, () => console.log("Backend running at http://localhost:3000"));

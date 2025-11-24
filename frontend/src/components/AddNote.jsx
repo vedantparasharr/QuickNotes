@@ -2,19 +2,25 @@ import { useState } from "react"
 import axios from "axios"
 import dayjs from "dayjs";
 
-const AddNote = ({ setNotes }) => {
+const AddNote = ({ setNotes, text, setText, isEditing, setIsEditing, noteId, setNoteId }) => {
 
-    const [text, setText] = useState("");
     const [loading, setLoading] = useState(false);
 
     const add = () => {
         if (!text.trim()) return;
 
-        setNotes(prev => [...prev, {
-            id: crypto.randomUUID(),
-            text,
-            date: dayjs()
-        }]);
+        if (isEditing) {
+            setNotes(prev => prev.map(n => n.id === noteId ? {...n, text} : n ))
+            setIsEditing(false)
+            setNoteId(null)
+        } else {
+            setNotes(prev => [...prev, {
+                id: crypto.randomUUID(),
+                text,
+                date: dayjs()
+            }])
+        }
+
         setText('')
     }
 

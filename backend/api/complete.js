@@ -5,7 +5,7 @@ export async function aiComplete(text) {
   const res = await axios.post(
     "https://openrouter.ai/api/v1/chat/completions",
     {
-      model: "gpt-4o-mini",
+      model: "openai/gpt-4o-mini",
       messages: [
         {
           role: "system", content: `You are a concise text-improver for a notes application.
@@ -27,7 +27,8 @@ export async function aiComplete(text) {
       headers: {
         "Authorization": `Bearer ${process.env.OPENROUTER_KEY}`,
         "HTTP-Referer": process.env.SITE_URL,
-        "X-Title": "QuickNotes"
+        "X-Title": "QuickNotes",
+        "Content-Type": "application/json"
       }
     }
   );
