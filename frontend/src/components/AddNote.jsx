@@ -52,7 +52,7 @@ const AddNote = ({ setNotes, text, setText, isEditing, setIsEditing, noteId, set
         try {
             setLoading(true);
 
-            const res = await axios.post("https://quicknotes-backend.onrender.com/api/complete", { text });
+            const res = await axios.post("https://quicknotes-9072.onrender.com/api/complete", { text });
             const improved = res.data.choices[0].message.content;
             setText(improved);
 
