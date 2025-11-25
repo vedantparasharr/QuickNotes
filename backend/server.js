@@ -7,16 +7,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// AI Route
 app.post("/api/complete", async (req, res) => {
   try {
     const { text } = req.body;
     const result = await aiComplete(text);
-    res.json(result);
+    return res.json(result);
   } catch (err) {
     console.error(err.response?.data || err);
-    res.status(500).json({ error: "AI request failed" });
+    return res.status(500).json({ error: "AI request failed" });
   }
 });
-console.log("Backend loaded key:", process.env.OPENROUTER_KEY);
 
-app.listen(3000, () => console.log("Backend running at http://localhost:3000"));
+// Test route for browser
+app.get("/", (req, res) => {
+  res.send("QuickNotes API is running!");
+});
+
+// IMPORTANT for Render: must use dynamic port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
