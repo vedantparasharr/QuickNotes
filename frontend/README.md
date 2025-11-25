@@ -1,16 +1,134 @@
-# React + Vite
+# 📒 QuickNotes — Minimal, Fast & Smart Note App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and modern notes application built with **React + Vite**, featuring auto-resizing input, AI-powered text improvement, local storage, and a dynamic masonry layout similar to Pinterest.
 
-Currently, two official plugins are available:
+🚀 **Live Demo:** [https://quicknotesreact.vercel.app/](https://quicknotesreact.vercel.app/)
+👨‍💻 **Author:** [Vedant Parashar](https://github.com/vedantparasharr)
+🔗 **LinkedIn:** [https://linkedin.com/in/vedantparasharr](https://linkedin.com/in/vedantparasharr)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ⭐ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📝 Smart Note Editor
 
-## Expanding the ESLint configuration
+* Auto-resizing textarea (ChatGPT style)
+* Word limit with live counter
+* Smooth animations and modern UI
+* Gradient backgrounds and custom scrollbars
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🤖 AI-Powered Improvements
+
+* Improve your notes using **OpenRouter (GPT-4o-mini)**
+* Clean rewrites
+* One-click enhancement
+
+### 📦 Local Storage Support
+
+* Notes persist even after refresh
+* No backend database needed
+
+### 🧩 Masonry Grid Layout
+
+* Pinterest-like layout
+* Each note grows based on its content
+* Supports dynamic resizing and hover animations
+
+### ✏️ Full Note Controls
+
+* Edit existing notes
+* Delete notes
+* Smooth transitions
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend:**
+
+* React
+* Vite
+* TailwindCSS
+* Day.js
+* OpenRouter API (client-side)
+
+**Other:**
+
+* LocalStorage
+* Custom animations & gradients
+* Responsive layout
+
+---
+
+## 📸 Screenshots
+
+*(Add your screenshots here later, e.g. UI preview, editor, masonry grid)*
+You can use:
+
+```
+![QuickNotes Screenshot](./screenshots/preview.png)
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/vedantparasharr/QuickNotes.git
+cd QuickNotes
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create environment variables
+
+Create `.env`:
+
+```
+VITE_OPENROUTER_KEY=your_api_key
+VITE_SITE_URL=https://quicknotesreact.vercel.app
+```
+
+### 4. Run the project
+
+```bash
+npm run dev
+```
+
+Your app will be available at:
+
+```
+http://localhost:5173/
+```
+
+---
+
+## 📡 Deployment
+
+The app is deployed on **Vercel**.
+Just push changes to `main` and Vercel will auto-deploy.
+
+---
+
+## ⭐ Future Improvements (Roadmap)
+
+* Categories / folders
+* Search notes
+* Dark mode
+* Cloud sync
+* Drag-and-drop layout
+* Backups / export
+
+---
+
+## 🧑‍💻 Author
+
+**Vedant Parashar**
+GitHub: [https://github.com/vedantparasharr](https://github.com/vedantparasharr)
+LinkedIn: [https://linkedin.com/in/vedantparasharr](https://linkedin.com/in/vedantparasharr)

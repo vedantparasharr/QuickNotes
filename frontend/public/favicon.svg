@@ -1,0 +1,27 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="60" fill="url(#grad)" />
+
+  <path 
+    d="M90 170 Q60 140 60 105 Q60 60 110 60 Q160 60 160 105 Q160 140 130 160" 
+    stroke="white" 
+    stroke-width="18" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <line 
+    x1="150" y1="140" 
+    x2="195" y2="180" 
+    stroke="white" 
+    stroke-width="18" 
+    stroke-linecap="round"
+  />
+
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+  </defs>
+</svg>

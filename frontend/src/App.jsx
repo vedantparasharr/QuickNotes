@@ -26,7 +26,7 @@ function App() {
 
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-white to-gray-300 p-5">
+    <main className="min-h-screen bg-gradient-to-br from-[#f6f5ff] to-[#e7e6ff] p-5">
       <h1 className="font-semibold text-center text-5xl mx-12 mb-5">Quick Notes</h1>
 
       <div className="max-w-3xl mx-auto mb-10 px-2">
