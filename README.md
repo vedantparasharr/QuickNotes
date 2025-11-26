@@ -62,12 +62,7 @@ A clean and modern notes application built with **React + Vite**, featuring auto
 
 ## 📸 Screenshots
 
-*(Add your screenshots here later, e.g. UI preview, editor, masonry grid)*
-You can use:
-
-```
-![QuickNotes Screenshot](./screenshots/preview.png)
-```
+![QuickNotes Screenshot](https://github.com/user-attachments/assets/0750bc65-0936-4c20-8919-80258e38be8c)
 
 ---
 
