@@ -1,4 +1,4 @@
-# 📒 QuickNotes — Minimal, Fast & Smart Note App
+# 📒 QuickNotes — Minimal, Fast & Smart Note App 
 
 A clean and modern notes application built with **React + Vite**, featuring auto-resizing input, AI-powered text improvement, local storage, and a dynamic masonry layout similar to Pinterest.
 
